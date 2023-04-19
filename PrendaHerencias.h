@@ -1,7 +1,5 @@
 #pragma once
-#include "Prenda.h"
 #include "TiposPrendas.h"
-
 
 class Pantalon : public Prenda {
 public:

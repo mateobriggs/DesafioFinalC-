@@ -1,13 +1,17 @@
-#include "Vista.h"
-#include "PrendaHerencias.h"
+#include "Presentador.h"
+
+Vista::Vista() {
+	presentador = new Presentador(this);
+	presentador->mostrarPasos();
+}
 
 void Vista::mostrarPaginaPrincipal() {
 
 	cout << "COTIZADOR EXPRESS - MENU PRINCIPAL" << endl
 		<< "-------------------------------------------------" << endl
-		<< presentador.tienda.nombre << "|" << presentador.tienda.direccion << endl
+		<< presentador->tienda.nombre << "|" << presentador->tienda.direccion << endl
 		<< "-------------------------------------------------" << endl
-		<< presentador.vendedor.nombre << " " << presentador.vendedor.apellido << "|" << "Codigo: " << presentador.vendedor.id << endl
+		<< presentador->vendedor.nombre << " " << presentador->vendedor.apellido << "|" << "Codigo: " << presentador->vendedor.id << endl
 		<< "-------------------------------------------------" << endl
 		<< "SELECCIONE UNA OPCION DEL MENU:" << endl
 		<< "1) Historial de Cotizaciones" << endl
@@ -73,7 +77,7 @@ void Vista::mostrarIngresarCantidad() {
 
 void Vista::mostrarCotizacion() {
 
-	presentador.vendedor.mostrarUltimaCotizacion();
+	presentador->vendedor.mostrarUltimaCotizacion();
 
 }
 
@@ -85,4 +89,26 @@ void Vista::mostrarHeader() {
 		<< "Presione 4 para volver al paso anterior" << endl
 		<< "-------------------------------------------------" << endl;
 
+}
+
+void Vista::mostrarCrearVendedorNombre() {
+	cout << "Bienvenido a Cotizar.app" << endl
+		<< "Por favor complete los siguientes campos para empezar:" << endl
+		<< "Ingrese su nombre: ";
+}
+
+void Vista::mostrarCrearVendedorApellido() {
+	cout << "Ingrese su apellido: ";
+}
+
+void Vista::mostrarCrearVendedorId() {
+	cout << "Ingrese su id de vendedor: ";
+}
+
+void Vista::mostrarCrearTiendaNombre() {
+	cout << "Ingrese el nombre de la tienda: ";
+}
+
+void Vista::mostrarCrearTiendaDireccion() {
+	cout << "Ingrese la direccion de la tienda: ";
 }

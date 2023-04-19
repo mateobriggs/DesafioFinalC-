@@ -1,10 +1,11 @@
 #pragma once
-#include "Presentador.h"
 
+class Presentador;
 
 class Vista {
+	Presentador* presentador;
 public:
-	Presentador presentador;
+	Vista();
 	void mostrarPaginaPrincipal();
 	void mostrarSeleccionarPrenda();
 	void mostrarSeleccionarManga();
@@ -15,4 +16,9 @@ public:
 	void mostrarIngresarCantidad();
 	void mostrarCotizacion();
 	void mostrarHeader();
+	void mostrarCrearVendedorNombre();
+	void mostrarCrearVendedorApellido();
+	void mostrarCrearVendedorId();
+	void mostrarCrearTiendaNombre();
+	void mostrarCrearTiendaDireccion();
 };

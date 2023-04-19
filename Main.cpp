@@ -1,6 +1,6 @@
-#include "PrendaHerencias.h"
 #include "Vista.h"
 
 int main() {
-	
+	Vista vista;
+	return 0;
 }

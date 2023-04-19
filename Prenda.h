@@ -1,5 +1,13 @@
 #pragma once
-#include "Tienda.h"
+#include <iostream>
+#include <string>
+#include <vector>
+#include <chrono>
+#include <ctime>
+
+using namespace std;
+
+enum Calidad;
 
 class Prenda {
 public:
