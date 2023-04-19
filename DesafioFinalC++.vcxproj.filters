@@ -1,17 +1,72 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Archivos de origen">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="Modelo">
+      <UniqueIdentifier>{13f74e6a-6830-4139-97d6-042ce2de12d6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de encabezado">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    <Filter Include="Modelo\Archivos de encabezado">
+      <UniqueIdentifier>{93288bd4-a93b-469f-9c15-e76d193ebe0a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de recursos">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="Modelo\Archivos de origen">
+      <UniqueIdentifier>{7aff1638-a420-49bb-b981-93b25038a002}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Vista">
+      <UniqueIdentifier>{8dc823be-e101-4360-9b12-6e851f39a026}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Vista\Archivos de encabezado">
+      <UniqueIdentifier>{9d0a9c4d-c2f7-4fab-80ee-90f13147ebe1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Vista\Archivos de origen">
+      <UniqueIdentifier>{5fe52d44-2d6c-44eb-9c01-fa2c676b4e35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Presentador">
+      <UniqueIdentifier>{bdfae79e-ada8-4b9a-86c7-e569a4742c7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Presentador\Archivos de encabezado">
+      <UniqueIdentifier>{232812f1-c12b-4fe6-8b45-6a2d28993048}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Presentador\Archivos de origen">
+      <UniqueIdentifier>{b5d0743e-246c-43a1-a201-87944eafe932}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Cotizacion.h">
+      <Filter>Modelo\Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Vendedor.h">
+      <Filter>Modelo\Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Tienda.h">
+      <Filter>Modelo\Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Prenda.h">
+      <Filter>Modelo\Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="PrendaHerencias.h">
+      <Filter>Modelo\Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="TiposPrendas.h">
+      <Filter>Modelo\Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Vista.h">
+      <Filter>Vista\Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Presentador.h">
+      <Filter>Presentador\Archivos de encabezado</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Vendedor.cpp">
+      <Filter>Modelo\Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Cotizacion.cpp">
+      <Filter>Modelo\Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Vista.cpp">
+      <Filter>Vista\Archivos de origen</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitignore" />
   </ItemGroup>
 </Project>
