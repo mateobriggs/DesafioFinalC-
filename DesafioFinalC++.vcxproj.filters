@@ -28,6 +28,9 @@
     <Filter Include="Presentador\Archivos de origen">
       <UniqueIdentifier>{b5d0743e-246c-43a1-a201-87944eafe932}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Main">
+      <UniqueIdentifier>{d5bce49e-abcc-4633-85fb-ba357b3e2333}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cotizacion.h">
@@ -64,6 +67,12 @@
     </ClCompile>
     <ClCompile Include="Vista.cpp">
       <Filter>Vista\Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Presentador.cpp">
+      <Filter>Presentador\Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Main</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

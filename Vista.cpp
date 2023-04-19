@@ -73,7 +73,7 @@ void Vista::mostrarIngresarCantidad() {
 
 void Vista::mostrarCotizacion() {
 
-	/*MOSTRAR COTIZACION*/
+	presentador.vendedor.mostrarUltimaCotizacion();
 
 }
 

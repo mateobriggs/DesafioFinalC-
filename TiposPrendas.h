@@ -9,5 +9,9 @@ enum Manga {
 };
 
 enum Estilo {
-	COMUN, CHUPIN
+	SUELTO, CHUPIN
+};
+
+enum Calidad {
+	PREMIUM, STANDARD
 };

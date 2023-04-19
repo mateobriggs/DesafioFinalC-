@@ -1,7 +1,9 @@
 #pragma once
 #include "Presentador.h"
+
+
 class Vista {
-private:
+public:
 	Presentador presentador;
 	void mostrarPaginaPrincipal();
 	void mostrarSeleccionarPrenda();

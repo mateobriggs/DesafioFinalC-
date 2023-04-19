@@ -3,6 +3,7 @@
 
 class Prenda {
 public:
-	string calidad, nombre;
+	string nombre;
 	int precio, cantidad;
+	Calidad calidad;
 };

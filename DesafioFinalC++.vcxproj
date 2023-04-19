@@ -140,6 +140,8 @@
     <ClCompile Include="Cotizacion.cpp">
       <UseUnicodeForAssemblerListing Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</UseUnicodeForAssemblerListing>
     </ClCompile>
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Presentador.cpp" />
     <ClCompile Include="Vendedor.cpp" />
     <ClCompile Include="Vista.cpp" />
   </ItemGroup>

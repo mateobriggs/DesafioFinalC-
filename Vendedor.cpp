@@ -2,7 +2,7 @@
 #include <chrono>
 #include <ctime>
 
-void Vendedor::crearCotizacion() {
+void Vendedor::crearCotizacion(string input1, string input2a, string input2b, string input2, string input3, string input4, string input5) {
 
 	string idCotizacion;
 	idCotizacion = listaCotizaciones.size();
@@ -21,16 +21,15 @@ void Vendedor::crearCotizacion() {
 
 	string codigoVendedor = id;
 
-	string prenda;
-	Prenda prendaACotizar;
-	prenda = prendaACotizar.nombre;
+	Prenda prendaACotizar = establecerPrenda(input1, input2a, input2b, input2, input3);
 
-	int cantidadUnidades;
+	int cantidadUnidades = stoi(input5);
 
 	int resultado, precio;
+	precio = stoi(input4);
 	resultado = calcularResultadoCotizacion(precio, &prendaACotizar) * cantidadUnidades;
 
-	Cotizacion nuevaCotizacion = Cotizacion(id, fechaHora, codigoVendedor, prenda, cantidadUnidades, resultado);
+	Cotizacion nuevaCotizacion = Cotizacion(id, fechaHora, codigoVendedor, prendaACotizar, cantidadUnidades, resultado);
 	listaCotizaciones.push_back(nuevaCotizacion);
 }
 
@@ -55,9 +54,44 @@ int Vendedor::calcularResultadoCotizacion(int precio, Prenda* prendaACotizar) {
 		}
 	}
 
-	if (prendaACotizar->calidad == "Premium") {
+	if (prendaACotizar->calidad == PREMIUM) {
 		modificadorPrecio = (modificadorPrecio + 0.3);
 	}
 
 	return (precio * modificadorPrecio);
+}
+
+void Vendedor::mostrarListaCotizaciones() {
+	for (Cotizacion cotizacion : listaCotizaciones) {
+		cotizacion.imprmirCotizacion();
+	}
+}
+
+Prenda Vendedor::establecerPrenda(string input1, string input2a, string input2b, string input2, string input3) {
+
+	if (input1 == "1") {
+		Camisa camisa;
+		camisa.nombre = "Camisa";
+
+		camisa.manga = (input2a == "1") ? CORTA : LARGA;
+		camisa.cuello = (input2b == "1") ? MAO : COMUN;
+		camisa.calidad = (input3 == "1") ? PREMIUM : STANDARD;
+		return camisa;
+	}
+
+	else{
+		Pantalon pantalon;
+		pantalon.nombre = "Pantalon";
+
+		pantalon.estilo = (input2 == "1") ? CHUPIN : SUELTO;
+		pantalon.calidad = (input3 == "1") ? PREMIUM : STANDARD;
+		return pantalon;
+
+	}
+
+
+}
+
+void Vendedor::mostrarUltimaCotizacion() {
+	listaCotizaciones[listaCotizaciones.size() - 1].imprmirCotizacion();
 }
