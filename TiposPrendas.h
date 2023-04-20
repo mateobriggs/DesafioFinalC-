@@ -1,5 +1,5 @@
 #pragma once
-#include "Tienda.h"
+#include "Prenda.h"
 
 enum Cuello {
 	MAO, COMUN

@@ -21,4 +21,6 @@ public:
 	void mostrarCrearVendedorId();
 	void mostrarCrearTiendaNombre();
 	void mostrarCrearTiendaDireccion();
+	void mostrarMensajeError();
+	void mostrarMensajeContinuar();
 };

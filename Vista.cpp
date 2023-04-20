@@ -2,7 +2,7 @@
 
 Vista::Vista() {
 	presentador = new Presentador(this);
-	presentador->mostrarPasos();
+	presentador->realizarPasos();
 }
 
 void Vista::mostrarPaginaPrincipal() {
@@ -85,8 +85,8 @@ void Vista::mostrarHeader() {
 
 	cout << "COTIZADOR EXPRESS - COTIZAR" << endl
 		<< "-------------------------------------------------" << endl
-		<< "Presione 3 para volver al menu principal" << endl
-		<< "Presione 4 para volver al paso anterior" << endl
+		<< "Presione X para volver al menu principal" << endl
+		<< "Presione B para volver al paso anterior" << endl
 		<< "-------------------------------------------------" << endl;
 
 }
@@ -111,4 +111,12 @@ void Vista::mostrarCrearTiendaNombre() {
 
 void Vista::mostrarCrearTiendaDireccion() {
 	cout << "Ingrese la direccion de la tienda: ";
+}
+
+void Vista::mostrarMensajeError() {
+	cout << "Ingreso incorrecto, por favor elija una opcion valida" << endl;
+}
+
+void Vista::mostrarMensajeContinuar() {
+	cout << "Toca enter para continuar" << endl;
 }

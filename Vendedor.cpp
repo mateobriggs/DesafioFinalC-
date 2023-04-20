@@ -1,11 +1,11 @@
-#include "PrendaHerencias.h"
+#include "Tienda.h"
 
-void Vendedor::crearCotizacion(string input1, string input2a, string input2b, string input2, string input3, string input4, string input5) {
+void Vendedor::crearCotizacion(string input1, string input2a, string input2b, string input2, string input3, int input4, int input5) {
 
 	string idCotizacion;
-	idCotizacion = to_string(listaCotizaciones.size());
+	idCotizacion = "00" + to_string(listaCotizaciones.size() + 1);
 
-	string fechaHora;
+	string fechaHora = "10/2/2023 15:50:04";
 	/*auto horaActual = chrono::system_clock::now();
 	time_t horaAcutal_h = chrono::system_clock::to_time_t(horaActual);
 	tm* momentoCotizacion = gmtime_s(&horaAcutal_h);
@@ -19,45 +19,95 @@ void Vendedor::crearCotizacion(string input1, string input2a, string input2b, st
 
 	string codigoVendedor = id;
 
-	Prenda prendaACotizar = establecerPrenda(input1, input2a, input2b, input2, input3);
-
-	int cantidadUnidades = stoi(input5);
-
-	int precio;
+	int precio = input4;
 	double resultado;
-	precio = stoi(input4);
-	resultado = calcularResultadoCotizacion(precio, &prendaACotizar) * cantidadUnidades;
+	int cantidadUnidades = input5;
 
-	Cotizacion nuevaCotizacion = Cotizacion(id, fechaHora, codigoVendedor, prendaACotizar, cantidadUnidades, resultado);
-	listaCotizaciones.push_back(nuevaCotizacion);
+	if (input1 == "1") {
+		Camisa prendaACotizar = establecerCamisa(input1, input2a, input2b, input3, input4);
+		resultado = calcularResultadoCotizacion(precio, prendaACotizar) * cantidadUnidades;
+		Cotizacion nuevaCotizacion = Cotizacion(idCotizacion, fechaHora, codigoVendedor, prendaACotizar, cantidadUnidades, resultado, precio);
+		listaCotizaciones.push_back(nuevaCotizacion);
+	}
+	else {
+		Pantalon prendaACotizar = establecerPantalon(input1, input2, input3, input4);
+		resultado = calcularResultadoCotizacion(precio, prendaACotizar) * cantidadUnidades;
+		Cotizacion nuevaCotizacion = Cotizacion(idCotizacion, fechaHora, codigoVendedor, prendaACotizar, cantidadUnidades, resultado, precio);
+		listaCotizaciones.push_back(nuevaCotizacion);
+	}
+
+	
 }
 
-double Vendedor::calcularResultadoCotizacion(int precio, Prenda* prendaACotizar) {
+double Vendedor::calcularResultadoCotizacion(int precio, Pantalon pantalonACotizar) {
+
+	double modificadorPrecio = 1;
+	if (pantalonACotizar.estilo == CHUPIN) {
+		modificadorPrecio = (modificadorPrecio - 0.12);
+	}
+
+	if (pantalonACotizar.calidad == PREMIUM) {
+		modificadorPrecio = (modificadorPrecio + 0.3);
+	}
+	
+	return (precio * modificadorPrecio);
+}
+
+double Vendedor::calcularResultadoCotizacion(int precio, Camisa camisaACotizar) {
 
 	double modificadorPrecio = 1;
 
-	if (prendaACotizar->nombre == "Pantalon") {
-		Pantalon* pantalon = static_cast<Pantalon*>(prendaACotizar);
-		if (pantalon->estilo == CHUPIN) {
-			modificadorPrecio = (modificadorPrecio - 0.12);
-		}
+	if (camisaACotizar.manga == CORTA) {
+		modificadorPrecio = (modificadorPrecio - 0.9);
 	}
 
-	if (prendaACotizar->nombre == "Camisa") {
-		Camisa* camisa = static_cast<Camisa*>(prendaACotizar);
-		if (camisa->manga == CORTA) {
-			modificadorPrecio = (1 - 0.1);
-		}
-		if (camisa->cuello == MAO) {
-			modificadorPrecio = (modificadorPrecio + 0.03);
-		}
+	if (camisaACotizar.cuello == MAO) {
+		modificadorPrecio = (modificadorPrecio + 0.03);
 	}
 
-	if (prendaACotizar->calidad == PREMIUM) {
+	if (camisaACotizar.calidad == PREMIUM) {
 		modificadorPrecio = (modificadorPrecio + 0.3);
 	}
 
 	return (precio * modificadorPrecio);
+}
+
+Camisa Vendedor::establecerCamisa(string input1, string input2a, string input2b, string input3, int precio) {
+
+		string nombre;
+		Manga manga;
+		Cuello cuello;
+		Calidad calidad;
+
+		nombre = "Camisa";
+		manga = (input2a == "1") ? CORTA : LARGA;
+		cuello = (input2b == "1") ? MAO : COMUN;
+		calidad = (input3 == "1") ? PREMIUM : STANDARD;
+
+		Camisa camisa = Camisa(nombre, cuello, manga, precio, calidad);
+
+		return camisa;
+
+}
+
+Pantalon Vendedor::establecerPantalon(string input1,string input2, string input3, int precio) {
+
+	string nombre;
+	Estilo estilo;
+	Calidad calidad;
+
+	nombre = "Camisa";
+	estilo = (input2 == "1") ? CHUPIN : SUELTO;
+	calidad = (input3 == "1") ? PREMIUM : STANDARD;
+
+	Pantalon pantalon = Pantalon(nombre, estilo, precio, calidad);
+
+	return pantalon;
+
+}
+
+void Vendedor::mostrarUltimaCotizacion() {
+	listaCotizaciones[listaCotizaciones.size() - 1].imprmirCotizacion();
 }
 
 void Vendedor::mostrarListaCotizaciones() {
@@ -66,31 +116,3 @@ void Vendedor::mostrarListaCotizaciones() {
 	}
 }
 
-Prenda Vendedor::establecerPrenda(string input1, string input2a, string input2b, string input2, string input3) {
-
-	if (input1 == "1") {
-		Camisa camisa;
-		camisa.nombre = "Camisa";
-
-		camisa.manga = (input2a == "1") ? CORTA : LARGA;
-		camisa.cuello = (input2b == "1") ? MAO : COMUN;
-		camisa.calidad = (input3 == "1") ? PREMIUM : STANDARD;
-		return camisa;
-	}
-
-	else {
-		Pantalon pantalon;
-		pantalon.nombre = "Pantalon";
-
-		pantalon.estilo = (input2 == "1") ? CHUPIN : SUELTO;
-		pantalon.calidad = (input3 == "1") ? PREMIUM : STANDARD;
-		return pantalon;
-
-	}
-
-
-}
-
-void Vendedor::mostrarUltimaCotizacion() {
-	listaCotizaciones[listaCotizaciones.size() - 1].imprmirCotizacion();
-}
