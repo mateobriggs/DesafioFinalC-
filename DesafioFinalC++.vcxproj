@@ -142,11 +142,13 @@
     </ClCompile>
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Presentador.cpp" />
+    <ClCompile Include="Tienda.cpp" />
     <ClCompile Include="Vendedor.cpp" />
     <ClCompile Include="Vista.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
+    <None Include="Anotaciones" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

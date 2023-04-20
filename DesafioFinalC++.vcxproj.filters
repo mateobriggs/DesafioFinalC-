@@ -74,8 +74,12 @@
     <ClCompile Include="Main.cpp">
       <Filter>Main</Filter>
     </ClCompile>
+    <ClCompile Include="Tienda.cpp">
+      <Filter>Modelo\Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
+    <None Include="Anotaciones" />
   </ItemGroup>
 </Project>

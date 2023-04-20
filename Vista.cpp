@@ -11,7 +11,7 @@ void Vista::mostrarPaginaPrincipal() {
 		<< "-------------------------------------------------" << endl
 		<< presentador->tienda.nombre << "|" << presentador->tienda.direccion << endl
 		<< "-------------------------------------------------" << endl
-		<< presentador->vendedor.nombre << " " << presentador->vendedor.apellido << "|" << "Codigo: " << presentador->vendedor.id << endl
+		<< presentador->tienda.vendedor.nombre << " " << presentador->tienda.vendedor.apellido << "|" << "Codigo: " << presentador->tienda.vendedor.id << endl
 		<< "-------------------------------------------------" << endl
 		<< "SELECCIONE UNA OPCION DEL MENU:" << endl
 		<< "1) Historial de Cotizaciones" << endl
@@ -48,15 +48,15 @@ void Vista::mostrarSeleccionarPantalon() {
 
 	cout << "PASO 2: El pantalon a cotizar es:" << endl
 		<< "1) Chupin" << endl
-		<< "2) Comun" << endl;
+		<< "2) Suelto" << endl;
 
 }
 
 void Vista::mostrarSeleccionarCalidad() {
 
 	cout << "PASO 3: Seleccione la calidad de la prenda:" << endl
-		<< "1) Standard" << endl
-		<< "2) Premium" << endl;
+		<< "1) Premium" << endl
+		<< "2) Standard" << endl;
 
 }
 
@@ -69,15 +69,14 @@ void Vista::mostrarIngresarPrecio() {
 
 void Vista::mostrarIngresarCantidad() {
 
-	cout << "INFORMACION: " << endl
-		<< "EXISTE " << /*INGRESAR CANTIDADD*/ "CANTIDAD DE UNIDADES EN STOCK DE ESTA PRENDA" << endl
-		<< "\n" << "PASO 5: Ingrese la cantidad de unidades a cotizar: "
+	cout 
+		<< "\n" << "PASO 5: Ingrese la cantidad de unidades a cotizar: " << endl
 		<< "-";
 }
 
 void Vista::mostrarCotizacion() {
 
-	presentador->vendedor.mostrarUltimaCotizacion();
+	presentador->tienda.vendedor.mostrarUltimaCotizacion();
 
 }
 
@@ -86,15 +85,12 @@ void Vista::mostrarHeader() {
 	cout << "COTIZADOR EXPRESS - COTIZAR" << endl
 		<< "-------------------------------------------------" << endl
 		<< "Presione X para volver al menu principal" << endl
-		<< "Presione B para volver al paso anterior" << endl
 		<< "-------------------------------------------------" << endl;
 
 }
 
 void Vista::mostrarCrearVendedorNombre() {
-	cout << "Bienvenido a Cotizar.app" << endl
-		<< "Por favor complete los siguientes campos para empezar:" << endl
-		<< "Ingrese su nombre: ";
+	cout << "Ingrese su nombre: ";
 }
 
 void Vista::mostrarCrearVendedorApellido() {
@@ -106,7 +102,9 @@ void Vista::mostrarCrearVendedorId() {
 }
 
 void Vista::mostrarCrearTiendaNombre() {
-	cout << "Ingrese el nombre de la tienda: ";
+	cout << "Bienvenido a Cotizar.app" << endl
+		<< "Por favor complete los siguientes campos para empezar:" << endl 
+		<< "Ingrese el nombre de la tienda: ";
 }
 
 void Vista::mostrarCrearTiendaDireccion() {

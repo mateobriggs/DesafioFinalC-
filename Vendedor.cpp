@@ -41,35 +41,37 @@ void Vendedor::crearCotizacion(string input1, string input2a, string input2b, st
 
 double Vendedor::calcularResultadoCotizacion(int precio, Pantalon pantalonACotizar) {
 
-	double modificadorPrecio = 1;
+	double devolucion = precio;
+
 	if (pantalonACotizar.estilo == CHUPIN) {
-		modificadorPrecio = (modificadorPrecio - 0.12);
+		devolucion = devolucion * (1 - 0.12);
 	}
 
 	if (pantalonACotizar.calidad == PREMIUM) {
-		modificadorPrecio = (modificadorPrecio + 0.3);
+		devolucion = devolucion * (1 + 0.3);
 	}
 	
-	return (precio * modificadorPrecio);
+	return devolucion;
 }
 
 double Vendedor::calcularResultadoCotizacion(int precio, Camisa camisaACotizar) {
 
-	double modificadorPrecio = 1;
+	double devolucion = precio;
 
 	if (camisaACotizar.manga == CORTA) {
-		modificadorPrecio = (modificadorPrecio - 0.9);
+		devolucion = devolucion * (1 - 0.1);
 	}
 
 	if (camisaACotizar.cuello == MAO) {
-		modificadorPrecio = (modificadorPrecio + 0.03);
+		devolucion = devolucion * (1 + 0.03);
 	}
 
 	if (camisaACotizar.calidad == PREMIUM) {
-		modificadorPrecio = (modificadorPrecio + 0.3);
+			devolucion = devolucion * (1 + 0.3);
 	}
 
-	return (precio * modificadorPrecio);
+	return devolucion;
+	
 }
 
 Camisa Vendedor::establecerCamisa(string input1, string input2a, string input2b, string input3, int precio) {
@@ -96,7 +98,7 @@ Pantalon Vendedor::establecerPantalon(string input1,string input2, string input3
 	Estilo estilo;
 	Calidad calidad;
 
-	nombre = "Camisa";
+	nombre = "Pantalon";
 	estilo = (input2 == "1") ? CHUPIN : SUELTO;
 	calidad = (input3 == "1") ? PREMIUM : STANDARD;
 
@@ -111,6 +113,7 @@ void Vendedor::mostrarUltimaCotizacion() {
 }
 
 void Vendedor::mostrarListaCotizaciones() {
+	cout << "Historial de cotizaciones de " << nombre << " " << apellido << endl;
 	for (Cotizacion cotizacion : listaCotizaciones) {
 		cotizacion.imprmirCotizacion();
 	}
