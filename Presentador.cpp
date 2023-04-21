@@ -1,10 +1,12 @@
 #include "Presentador.h"
 
 Presentador::Presentador(Vista* vista) {
+
 	this->vista = vista;
 	crearTienda();
 	crearVendedor();
 	system("cls");
+
 }
 
 void Presentador::realizarPasos() {
@@ -14,12 +16,9 @@ void Presentador::realizarPasos() {
 
 	do {
 		
-
-		
 		ptrFuncion = &Vista::mostrarPaginaPrincipal;
 		input = realizarPasoPagPrincipal(ptrFuncion);
 		
-
 		if (input == "1") {
 
 			tienda.vendedor.mostrarListaCotizaciones();
@@ -182,43 +181,65 @@ string Presentador::realizarPaso(void (Vista::* funcionVista)()) {
 }
 
 string Presentador::realizarPasoPagPrincipal(void (Vista::* funcionVista)()) {
+
 	string input;
 	bool inputCorrecto = false;
+
 	do {
+
 		(vista->*funcionVista)();
 		getline(cin, input);
 		system("cls");
+
 		if (input == "1" || input == "2" || input == "3") {
+
 			inputCorrecto = true;
+
 		}
+
 		else {
+
 			vista->mostrarMensajeError();
 			vista->mostrarMensajeContinuar();
 			cin.get();
 			system("cls");
+
 		}
+
 	} while (!inputCorrecto);
 
 	return input;
+
 }
 
 int Presentador::realizarPasoCantidadPrecio(void (Vista::* funcionVista)(), bool definiendoCantidad, int cantidadStock) {
+
 	string input;
 	bool inputCorrecto;
 	int devolucion;
+
 	do {
+
 		vista->mostrarHeader();
 		inputCorrecto = true;
+
 		if (definiendoCantidad) {
+
 			cout << "INFORMACION: " << endl
 				<< "EXISTE " << cantidadStock << " CANTIDAD DE UNIDADES EN STOCK DE ESTA PRENDA" << endl;
+
 		}
+
 		(vista->*funcionVista)();
 		getline(cin, input);
 		system("cls");
+
 		try {
+
 			devolucion = stoi(input);
+
 		}
+
 		catch (exception) {
 
 			if (input != "X") {
@@ -230,22 +251,28 @@ int Presentador::realizarPasoCantidadPrecio(void (Vista::* funcionVista)(), bool
 			else devolucion = -1;
 			
 		}
+
 		if (definiendoCantidad) {
+
 			if (devolucion > cantidadStock) {
+
 				inputCorrecto = false;
+
 			}
+
 		}
+
 		if (!inputCorrecto) {
+
 			vista->mostrarMensajeError();
 			vista->mostrarMensajeContinuar();
 			cin.get();
 			system("cls");
+
 		}
 		
-
 	} while (!inputCorrecto);
 
-	
-
 	return devolucion;
+
 }

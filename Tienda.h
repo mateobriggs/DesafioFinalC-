@@ -3,7 +3,7 @@
 
 class Tienda {
 public:
-	Tienda() {}
+	Tienda() { for (int i = 0; i < 12; i++) cantidades[i] = 0; }
 	Tienda(string nombre, string direccion) : nombre(nombre), direccion(direccion) { iniciarCantidades(); }
 	Vendedor vendedor;
 	string nombre, direccion;

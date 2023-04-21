@@ -113,7 +113,7 @@ void Vendedor::mostrarUltimaCotizacion() {
 }
 
 void Vendedor::mostrarListaCotizaciones() {
-	cout << "Historial de cotizaciones de " << nombre << " " << apellido << endl;
+	cout << "Historial de cotizaciones de " << nombre << " " << apellido << endl << endl;
 	for (Cotizacion cotizacion : listaCotizaciones) {
 		cotizacion.imprmirCotizacion();
 	}

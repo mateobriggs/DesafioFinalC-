@@ -9,7 +9,6 @@ void Cotizacion::imprmirCotizacion() {
 		<< "Cantidad de unidades cotizadas: " << cantidadUnidades << endl
 		<< "Precio final: " << resultado << endl << endl;
 
-
 }
 
 string Cotizacion::definirDetallesPrenda() {
