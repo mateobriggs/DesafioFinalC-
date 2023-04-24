@@ -10,6 +10,8 @@ class Cotizacion {
 	Pantalon* pantalon;
 	Camisa* camisa;
 	string detallesPrenda;
+	void definirDetallesPrenda();
+
 public:
 	Cotizacion(string id, string fechaHora, string codigoVendedor, Pantalon pantalon, int cantidadUnidades, double resultado, int precio) :
 		id(id), fechaHora(fechaHora), codigoVendedor(codigoVendedor), pantalon(&pantalon), cantidadUnidades(cantidadUnidades),
@@ -18,5 +20,4 @@ public:
 		id(id), fechaHora(fechaHora), codigoVendedor(codigoVendedor), camisa(&camisa), cantidadUnidades(cantidadUnidades),
 		resultado(resultado), precio(precio), pantalon(nullptr), detallesPrenda("") { definirDetallesPrenda(); }
 	void imprmirCotizacion();
-	void definirDetallesPrenda();
 };

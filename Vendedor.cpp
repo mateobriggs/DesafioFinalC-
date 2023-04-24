@@ -5,17 +5,18 @@ void Vendedor::crearCotizacion(string input1, string input2a, string input2b, st
 	string idCotizacion;
 	idCotizacion = "00" + to_string(listaCotizaciones.size() + 1);
 
-	string fechaHora = "10/2/2023 15:50:04";
-	/*auto horaActual = chrono::system_clock::now();
-	time_t horaAcutal_h = chrono::system_clock::to_time_t(horaActual);
-	tm* momentoCotizacion = gmtime_s(&horaAcutal_h);
-	string dia = to_string(momentoCotizacion->tm_wday + 1);
-	string mes = to_string(momentoCotizacion->tm_mon + 1);
-	string ano = to_string(momentoCotizacion->tm_year + 1900);
-	string hora = to_string(momentoCotizacion->tm_hour);
-	string minuto = to_string(momentoCotizacion->tm_min);
-	string segundo = to_string(momentoCotizacion->tm_sec);
-	fechaHora = dia + "/" + mes + "/" + ano + " " + hora + ":" + minuto + ":" + segundo;*/
+	string fechaHora;
+	time_t ahora = time(0);
+	tm fechaYHora;
+	localtime_s(&fechaYHora, &ahora);
+	int dia = fechaYHora.tm_mday;
+	int mes = fechaYHora.tm_mon + 1;
+	int ano = fechaYHora.tm_year + 1900;
+	int hora = fechaYHora.tm_hour;
+	int minuto = fechaYHora.tm_min;
+	int segundo = fechaYHora.tm_sec;
+
+	fechaHora = to_string(dia) + "/" + to_string(mes) + "/" + to_string(ano) + " " + to_string(hora) + ":" + to_string(minuto) + ":" + to_string(segundo);
 
 	string codigoVendedor = id;
 

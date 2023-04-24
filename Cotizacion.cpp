@@ -3,6 +3,7 @@
 void Cotizacion::imprmirCotizacion() {
 
 	cout << "Numero de identificacion: " << id << endl
+		<< "Fecha y hora: " << fechaHora << endl
 		<< "Codigo del vendedor: " << codigoVendedor << endl
 		<< "Prenda cotizada: " << detallesPrenda << endl
 		<< "Precio unitario: " << precio << endl
