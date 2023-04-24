@@ -4,14 +4,14 @@ void Cotizacion::imprmirCotizacion() {
 
 	cout << "Numero de identificacion: " << id << endl
 		<< "Codigo del vendedor: " << codigoVendedor << endl
-		<< "Prenda cotizada: " << definirDetallesPrenda() << endl
+		<< "Prenda cotizada: " << detallesPrenda << endl
 		<< "Precio unitario: " << precio << endl
 		<< "Cantidad de unidades cotizadas: " << cantidadUnidades << endl
 		<< "Precio final: " << resultado << endl << endl;
 
 }
 
-string Cotizacion::definirDetallesPrenda() {
+void Cotizacion::definirDetallesPrenda() {
 	string detallesPrenda;
 	if (pantalon != nullptr) {
 		detallesPrenda = "Pantalon";
@@ -27,7 +27,7 @@ string Cotizacion::definirDetallesPrenda() {
 		if (pantalon->calidad == STANDARD) {
 			detallesPrenda = detallesPrenda + " - " + "Calidad Standard";
 		}
-		return detallesPrenda;
+		this->detallesPrenda = detallesPrenda;
 	}
 	else{
 		detallesPrenda = "Camisa";
@@ -43,7 +43,13 @@ string Cotizacion::definirDetallesPrenda() {
 		if (camisa->cuello == COMUN) {
 			detallesPrenda = detallesPrenda + " - " + "Cuello Comun";
 		}
-		return detallesPrenda;
+		if (camisa->calidad == PREMIUM) {
+			detallesPrenda = detallesPrenda + " - " + "Calidad Premium";
+		}
+		if (camisa->calidad == STANDARD) {
+			detallesPrenda = detallesPrenda + " - " + "Calidad Standard";
+		}
+		this->detallesPrenda = detallesPrenda;
 	}
 	
 }
