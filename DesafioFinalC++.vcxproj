@@ -147,7 +147,6 @@
     <ClCompile Include="Vista.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include=".gitignore" />
     <None Include="Anotaciones" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
