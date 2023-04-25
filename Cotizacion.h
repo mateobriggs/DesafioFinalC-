@@ -1,7 +1,6 @@
 #pragma once
 #include "PrendaHerencias.h"
 
-/*AÑADIR PRECIO*/
 
 class Cotizacion {
 	string id, fechaHora, codigoVendedor;

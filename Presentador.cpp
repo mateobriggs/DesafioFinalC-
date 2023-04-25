@@ -146,34 +146,42 @@ void Presentador::crearTienda() {
 }
 
 string Presentador::realizarPaso(void (Vista::* funcionVista)()) {
+
 	string input;
 	bool inputCorrecto = false;
+
 	do {
+
 		vista->mostrarHeader();
 		(vista->*funcionVista)();
 		getline(cin, input);
 		system("cls");
+
 		if (input == "1" || input == "2") {
+
 			inputCorrecto = true;
+
 		}
+
 		else {
+
 			if (input == "X") {
+
 				inputCorrecto = true;
 				input = "Menu Principal";
+
 			}
+			
 			else {
-				if (input == "B") {
-					inputCorrecto = true;
-					input = "Volver";
-				}
-				else {
+
 					vista->mostrarMensajeError();
 					vista->mostrarMensajeContinuar();
 					cin.get();
 					system("cls");
-				}
-				
+
 			}
+				
+
 		}
 	} while (!inputCorrecto);
 	
